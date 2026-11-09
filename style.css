@@ -45,3 +45,5 @@ section[id]{scroll-margin-top:0}.case-pair{position:relative}.case-pair:before,.
 @media(max-width:760px){.studio-media{gap:16px;grid-template-columns:1fr 1fr}.studio-media video,.studio-media img{height:auto;aspect-ratio:3/4}.closing p:not(.eyebrow){margin-top:22px}}
 
 .price>.wrap{row-gap:0}
+
+.space-banner img{object-position:50% 90%}
