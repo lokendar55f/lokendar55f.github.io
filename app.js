@@ -14,7 +14,7 @@ history.scrollRestoration='manual';
 const reloaded=performance.getEntriesByType('navigation')[0]?.type==='reload';
 window.addEventListener('load',()=>{if(reloaded||!location.hash){if(reloaded&&location.hash)history.replaceState(null,'',location.pathname+location.search);window.scrollTo({top:0,left:0,behavior:'instant'})}},{once:true});
 
-if('IntersectionObserver' in window){const visibleCTAs=new Set();const ctaObserver=new IntersectionObserver(entries=>{for(const e of entries){if(e.isIntersecting&&e.target.getBoundingClientRect().height>0)visibleCTAs.add(e.target);else visibleCTAs.delete(e.target)}document.body.classList.toggle('contact-inline',visibleCTAs.size>0)},{threshold:.8});document.querySelectorAll('.hero-actions .button,.closing .button,.price .button').forEach(el=>ctaObserver.observe(el))}
+
 
 const deck=document.querySelector('.result-deck'),cards=[...document.querySelectorAll('.result-card')];let activeCard=0;
 function moveCard(step){activeCard=(activeCard+step+cards.length)%cards.length;cards.forEach((card,i)=>{const offset=(i-activeCard+cards.length)%cards.length;card.dataset.position=offset===0?'center':offset===1?'left':'right'});document.querySelector('#deck-status').textContent=String(activeCard+1).padStart(2,'0')+' / 03'}

@@ -30,7 +30,7 @@ footer{padding-top:35px;padding-bottom:120px}.footer-top{display:block}.social{f
 
 /* Two independent source windows preserve each brow and eye; full original opens on tap. */
 .case-pair{display:block;width:100%;height:100%;overflow:hidden}.case-pair img{height:50%;width:100%;object-fit:cover;transform:none!important}.case-pair .source-upper{object-position:50% 10%}.case-pair .source-lower{object-position:50% 84%}.case:nth-child(2) .source-upper{object-position:50% 14%}.case:nth-child(2) .source-lower{object-position:50% 88%}
-body.contact-inline .sticky-contact{visibility:hidden;pointer-events:none}
+
 @media(max-width:760px){.case-grid{grid-template-columns:1fr;gap:28px}.case .zoom{height:250px}.case-title{display:flex;align-items:baseline;gap:15px}.case-title>span{font-size:9px}.case h3{font-size:21px}.case p{font-size:13px}.case .source-upper{object-position:50% 10%}.case .source-lower{object-position:50% 86%}}
 @media(max-width:360px){.case .zoom{height:230px}.case h3{font-size:19px}}
 
