@@ -31,3 +31,7 @@ body{overflow-x:clip}
 .sticky-contact{position:fixed;top:auto;display:grid;width:min(560px,calc(100% - 32px));grid-template-columns:1fr 1.35fr .85fr;margin:0;gap:6px}.sticky-contact a{display:flex;align-items:center;justify-content:center;min-width:0;padding:14px 14px;gap:7px;font-size:13px;line-height:1.4;border:0}.sticky-contact .sticky-naver{background:#e2eadb;color:#123e32}.sticky-contact .sticky-naver>span{font-weight:800;font-size:14px}.sticky-contact .sticky-phone{border:1px solid #c3cfc0}.sticky-contact a:last-child{min-width:0}
 @media(max-width:760px){.sticky-contact{width:100%;grid-template-columns:1fr 1.35fr .85fr;padding:8px 12px calc(8px + env(safe-area-inset-bottom));gap:6px}.sticky-contact a{font-size:12px;gap:5px;padding:14px 6px}.sticky-contact .sticky-naver>span{font-size:12px}}
 @media(max-width:350px){.sticky-contact a{font-size:11px}.sticky-contact{padding-left:10px;padding-right:10px;gap:5px}}
+
+/* Selected type B: MaruBuri headings, readable sans-serif body. */
+@font-face{font-family:MaruBuri;src:url('https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+h1,h2,h3,.hero-event b{font-family:MaruBuri,Georgia,serif;font-weight:400}h1,h2{letter-spacing:-.035em}h3{letter-spacing:-.02em}.hero-event b{line-height:1.5}
