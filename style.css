@@ -69,3 +69,7 @@ section[id]{scroll-margin-top:0}.case-pair{position:relative}.case-pair:before,.
 @media(max-width:760px){.method-detail dl>div{grid-template-columns:1fr 95px;gap:0 15px}.line-art{height:67px;gap:8px}.line-art i{height:42px}.line-art i:nth-child(2n){height:51px}.shade{width:95px}}
 
 #deck-pause{margin-left:2px;font-size:16px;border-color:transparent;color:#647168}
+
+/* Two selected long-hair portraits, with no third card. */
+.result-deck:has(.result-card:last-child:nth-child(2)) .result-card[data-position=center]{--card-transform:translateX(calc(-50% - 120px)) translateY(0) rotate(-6deg);z-index:3}.result-deck:has(.result-card:last-child:nth-child(2)) .result-card:not([data-position=center]){--card-transform:translateX(calc(-50% + 120px)) translateY(12px) rotate(6deg);z-index:2}
+@media(max-width:760px){.result-deck:has(.result-card:last-child:nth-child(2)) .result-card[data-position=center]{--card-transform:translateX(calc(-50% - 17vw)) translateY(0) rotate(-6deg)}.result-deck:has(.result-card:last-child:nth-child(2)) .result-card:not([data-position=center]){--card-transform:translateX(calc(-50% + 17vw)) translateY(12px) rotate(6deg)}}

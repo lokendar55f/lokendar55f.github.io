@@ -17,7 +17,7 @@ window.addEventListener('load',()=>{if(reloaded||!location.hash){if(reloaded&&lo
 
 
 const deck=document.querySelector('.result-deck'),cards=[...document.querySelectorAll('.result-card')];let activeCard=0,lastCardInteraction=0;
-function moveCard(step,automatic=false){if(!automatic)lastCardInteraction=Date.now();activeCard=(activeCard+step+cards.length)%cards.length;cards.forEach((card,i)=>{const offset=(i-activeCard+cards.length)%cards.length;card.dataset.position=offset===0?'center':offset===1?'left':'right'});document.querySelector('#deck-status').textContent=String(activeCard+1).padStart(2,'0')+' / 03'}
+function moveCard(step,automatic=false){if(!automatic)lastCardInteraction=Date.now();activeCard=(activeCard+step+cards.length)%cards.length;cards.forEach((card,i)=>{const offset=(i-activeCard+cards.length)%cards.length;card.dataset.position=offset===0?'center':cards.length===2?'right':offset===1?'left':'right'});document.querySelector('#deck-status').textContent=String(activeCard+1).padStart(2,'0')+' / '+String(cards.length).padStart(2,'0')}
 document.querySelector('#deck-prev').addEventListener('click',()=>moveCard(-1));document.querySelector('#deck-next').addEventListener('click',()=>moveCard(1));deck.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();moveCard(e.key==='ArrowRight'?1:-1)}});
 let touchStart=null,deckSwiped=false;deck.addEventListener('touchstart',e=>{deckSwiped=false;touchStart=e.touches[0].clientX},{passive:true});deck.addEventListener('touchend',e=>{if(touchStart!==null){const delta=e.changedTouches[0].clientX-touchStart;if(Math.abs(delta)>45){deckSwiped=true;moveCard(delta<0?1:-1)}}touchStart=null},{passive:true});
 
