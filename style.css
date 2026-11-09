@@ -48,21 +48,6 @@ section[id]{scroll-margin-top:0}.case-pair{position:relative}.case-pair:before,.
 
 .space-banner img{object-position:50% 90%}
 
-/* Fanned result cards: the requested combo1-2 is the first, front card. */
-.result-deck{height:440px;position:relative;isolation:isolate;overflow:hidden;margin:0 -20px;outline-offset:-5px}
-.result-card.zoom{position:absolute;left:50%;top:28px;width:268px;height:370px;padding:9px 9px 0;display:block;background:#fffdf7;border:1px solid #d4d9cc;box-shadow:0 15px 32px #163d3120;transform:var(--card-transform);transform-origin:50% 90%;transition:transform .65s cubic-bezier(.2,.75,.2,1),box-shadow .3s;overflow:hidden}
-.result-card[data-position=center]{--card-transform:translateX(-50%) translateY(0) rotate(0deg);z-index:3}
-.result-card[data-position=left]{--card-transform:translateX(calc(-50% - 205px)) translateY(23px) rotate(-11deg);z-index:1}
-.result-card[data-position=right]{--card-transform:translateX(calc(-50% + 205px)) translateY(23px) rotate(11deg);z-index:2}
-.result-card.zoom img{height:calc(100% - 34px);width:100%;object-fit:cover;object-position:50% 43%;transform:none!important}
-.result-card-caption{height:34px;display:flex;align-items:center;justify-content:space-between;font-size:8px;letter-spacing:.12em;color:#4c6451}
-.result-deck.fan-reveal.in-view{animation:none}.result-deck.in-view .result-card{animation:spreadCard .9s cubic-bezier(.2,.7,.2,1) backwards}.result-deck.in-view .result-card[data-position=center]{animation-delay:.08s}
-@keyframes spreadCard{from{transform:translateX(-50%) translateY(35px) rotate(0deg);opacity:.7}to{transform:var(--card-transform);opacity:1}}
-.deck-controls{display:flex;align-items:center;justify-content:center;gap:25px;margin:6px 0 54px}.deck-controls button{width:44px;height:44px;border:1px solid #b3c1af;font-size:20px;line-height:1}.deck-controls button:hover{background:#e5ebdf}.deck-controls p{font-size:11px;letter-spacing:.15em;min-width:60px;text-align:center;color:var(--muted)}
-.comparison-heading{margin-bottom:28px}.comparison-heading .eyebrow{margin-bottom:12px}.comparison-heading h2{font-size:29px}
-@media(max-width:760px){.result-deck{height:330px;touch-action:pan-y}.result-card.zoom{top:22px;width:clamp(160px,48vw,210px);height:auto;aspect-ratio:3/4.3;padding:7px 7px 0}.result-card[data-position=left]{--card-transform:translateX(calc(-50% - 18vw)) translateY(17px) rotate(-11deg)}.result-card[data-position=right]{--card-transform:translateX(calc(-50% + 18vw)) translateY(17px) rotate(11deg)}.result-card.zoom img{height:calc(100% - 29px)}.result-card-caption{height:29px;font-size:7px;letter-spacing:.07em}.deck-controls{margin:0 0 40px;gap:22px}.comparison-heading h2{font-size:25px}}
-@media(max-width:360px){.result-deck{height:290px}.result-card.zoom{width:164px}.result-card-caption{font-size:6px}}
-
 /* Restore the original line and shading illustrations inside the concise guide. */
 .method-detail dl>div{display:grid;grid-template-columns:1fr 120px;column-gap:20px;padding:13px 0;align-items:center}.method-detail dt{grid-column:1;grid-row:1}.method-detail dd{grid-column:1;grid-row:2;margin-top:4px}.line-art{grid-column:2;grid-row:1/3;height:75px;display:flex;gap:10px;align-items:center;justify-content:center;padding-left:8px}.line-art i{--angle:35deg;display:block;height:49px;width:1px;background:#67816c;transform:rotate(var(--angle));border-radius:50%;transform-origin:50% 85%}.line-art i:nth-child(2n){height:59px}.embo i{--angle:20deg;width:2px;opacity:.7}.shade{width:120px;background:radial-gradient(ellipse,#8b9a7f 0%,transparent 65%);opacity:.8}.choice-grid article.in-view .line-art i{animation:drawMethod .75s both}.choice-grid article.in-view .line-art i:nth-child(2){animation-delay:.07s}.choice-grid article.in-view .line-art i:nth-child(3){animation-delay:.14s}.choice-grid article.in-view .line-art i:nth-child(4){animation-delay:.21s}.choice-grid article.in-view .line-art i:nth-child(5){animation-delay:.28s}.choice-grid article.in-view .line-art i:nth-child(6){animation-delay:.35s}.choice-grid article.in-view .shade{animation:shadeMethod .9s both}
 @keyframes drawMethod{from{transform:rotate(var(--angle)) scaleY(.2);opacity:.1}to{transform:rotate(var(--angle)) scaleY(1);opacity:.8}}@keyframes shadeMethod{from{opacity:.2;transform:scale(.85)}to{opacity:.8;transform:scale(1)}}
@@ -70,10 +55,9 @@ section[id]{scroll-margin-top:0}.case-pair{position:relative}.case-pair:before,.
 
 #deck-pause{margin-left:2px;font-size:16px;border-color:transparent;color:#647168}
 
-/* Two selected long-hair portraits, with no third card. */
-.result-deck:has(.result-card:last-child:nth-child(2)) .result-card[data-position=center]{--card-transform:translateX(calc(-50% - 120px)) translateY(0) rotate(-6deg);z-index:3}.result-deck:has(.result-card:last-child:nth-child(2)) .result-card:not([data-position=center]){--card-transform:translateX(calc(-50% + 120px)) translateY(12px) rotate(6deg);z-index:2}
-@media(max-width:760px){.result-deck:has(.result-card:last-child:nth-child(2)) .result-card[data-position=center]{--card-transform:translateX(calc(-50% - 17vw)) translateY(0) rotate(-6deg)}.result-deck:has(.result-card:last-child:nth-child(2)) .result-card:not([data-position=center]){--card-transform:translateX(calc(-50% + 17vw)) translateY(12px) rotate(6deg)}}
-
 /* Original technique order: three equal entries, not two grouped columns. */
 .choice-grid.technique-grid{grid-template-columns:repeat(3,1fr);gap:35px}.method-card .line-art{grid-column:auto;grid-row:auto;width:145px;height:85px;justify-content:flex-start;margin-bottom:24px;padding-left:12px}.method-card .shade{padding:0;justify-content:center}.choice-grid .method-card>.eyebrow{font-size:10px;letter-spacing:.14em;margin:0 0 11px;color:#647168}.choice-grid .method-card h3{font-size:24px}.choice-grid .method-card>p:last-child{font-size:14px;margin-top:14px}
 @media(max-width:760px){.choice-grid.technique-grid{grid-template-columns:1fr;gap:26px}.method-card{display:grid;grid-template-columns:1fr 95px;column-gap:20px}.method-card .line-art{grid-column:2;grid-row:1/4;width:95px;height:100px;margin:0;align-self:center;justify-content:center;padding:0}.choice-grid .method-card>.eyebrow{grid-column:1;grid-row:1;font-size:9px;margin-bottom:8px}.choice-grid .method-card h3{grid-column:1;grid-row:2;font-size:23px}.choice-grid .method-card>p:last-child{grid-column:1;grid-row:3;font-size:13px;margin-top:10px}.method-card .shade{height:80px}}
+
+.photo-top-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;max-width:760px;margin:0 auto 55px}.gallery-portrait .zoom{height:auto;aspect-ratio:3/4;background:#e8e9e0}.gallery-portrait .zoom img{height:100%;width:100%;object-fit:contain;transform:none}.gallery-portrait>p{font-size:12px;line-height:1.8;color:var(--muted);margin-top:12px}.gallery-portrait:nth-child(2).in-view{animation-delay:.1s}
+@media(max-width:760px){.photo-top-grid{gap:16px;margin-bottom:38px}.gallery-portrait>p{font-size:11px;margin-top:9px}.gallery-portrait .zoom-mark{font-size:8px}}
