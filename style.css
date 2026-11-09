@@ -47,3 +47,18 @@ section[id]{scroll-margin-top:0}.case-pair{position:relative}.case-pair:before,.
 .price>.wrap{row-gap:0}
 
 .space-banner img{object-position:50% 90%}
+
+/* Fanned result cards: the requested combo1-2 is the first, front card. */
+.result-deck{height:440px;position:relative;isolation:isolate;overflow:hidden;margin:0 -20px;outline-offset:-5px}
+.result-card.zoom{position:absolute;left:50%;top:28px;width:268px;height:370px;padding:9px 9px 0;display:block;background:#fffdf7;border:1px solid #d4d9cc;box-shadow:0 15px 32px #163d3120;transform:var(--card-transform);transform-origin:50% 90%;transition:transform .65s cubic-bezier(.2,.75,.2,1),box-shadow .3s;overflow:hidden}
+.result-card[data-position=center]{--card-transform:translateX(-50%) translateY(0) rotate(0deg);z-index:3}
+.result-card[data-position=left]{--card-transform:translateX(calc(-50% - 205px)) translateY(23px) rotate(-11deg);z-index:1}
+.result-card[data-position=right]{--card-transform:translateX(calc(-50% + 205px)) translateY(23px) rotate(11deg);z-index:2}
+.result-card.zoom img{height:calc(100% - 34px);width:100%;object-fit:cover;object-position:50% 43%;transform:none!important}
+.result-card-caption{height:34px;display:flex;align-items:center;justify-content:space-between;font-size:8px;letter-spacing:.12em;color:#4c6451}
+.result-deck.fan-reveal.in-view{animation:none}.result-deck.in-view .result-card{animation:spreadCard .9s cubic-bezier(.2,.7,.2,1) backwards}.result-deck.in-view .result-card[data-position=center]{animation-delay:.08s}
+@keyframes spreadCard{from{transform:translateX(-50%) translateY(35px) rotate(0deg);opacity:.7}to{transform:var(--card-transform);opacity:1}}
+.deck-controls{display:flex;align-items:center;justify-content:center;gap:25px;margin:6px 0 54px}.deck-controls button{width:44px;height:44px;border:1px solid #b3c1af;font-size:20px;line-height:1}.deck-controls button:hover{background:#e5ebdf}.deck-controls p{font-size:11px;letter-spacing:.15em;min-width:60px;text-align:center;color:var(--muted)}
+.comparison-heading{margin-bottom:28px}.comparison-heading .eyebrow{margin-bottom:12px}.comparison-heading h2{font-size:29px}
+@media(max-width:760px){.result-deck{height:330px;touch-action:pan-y}.result-card.zoom{top:22px;width:clamp(160px,48vw,210px);height:auto;aspect-ratio:3/4.3;padding:7px 7px 0}.result-card[data-position=left]{--card-transform:translateX(calc(-50% - 18vw)) translateY(17px) rotate(-11deg)}.result-card[data-position=right]{--card-transform:translateX(calc(-50% + 18vw)) translateY(17px) rotate(11deg)}.result-card.zoom img{height:calc(100% - 29px)}.result-card-caption{height:29px;font-size:7px;letter-spacing:.07em}.deck-controls{margin:0 0 40px;gap:22px}.comparison-heading h2{font-size:25px}}
+@media(max-width:360px){.result-deck{height:290px}.result-card.zoom{width:164px}.result-card-caption{font-size:6px}}
