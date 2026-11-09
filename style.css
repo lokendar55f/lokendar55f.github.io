@@ -26,3 +26,8 @@
 html.motion-reduced{scroll-behavior:auto}html.motion-reduced *,html.motion-reduced *:before,html.motion-reduced *:after{animation:none!important;transition:none!important}
 
 body{overflow-x:clip}
+
+/* Verified Naver Place and phone access. Reservation URL awaits verification. */
+.sticky-contact{position:fixed;top:auto;display:grid;width:min(560px,calc(100% - 32px));grid-template-columns:1fr 1.35fr .85fr;margin:0;gap:6px}.sticky-contact a{display:flex;align-items:center;justify-content:center;min-width:0;padding:14px 14px;gap:7px;font-size:13px;line-height:1.4;border:0}.sticky-contact .sticky-naver{background:#e2eadb;color:#123e32}.sticky-contact .sticky-naver>span{font-weight:800;font-size:14px}.sticky-contact .sticky-phone{border:1px solid #c3cfc0}.sticky-contact a:last-child{min-width:0}
+@media(max-width:760px){.sticky-contact{width:100%;grid-template-columns:1fr 1.35fr .85fr;padding:8px 12px calc(8px + env(safe-area-inset-bottom));gap:6px}.sticky-contact a{font-size:12px;gap:5px;padding:14px 6px}.sticky-contact .sticky-naver>span{font-size:12px}}
+@media(max-width:350px){.sticky-contact a{font-size:11px}.sticky-contact{padding-left:10px;padding-right:10px;gap:5px}}
