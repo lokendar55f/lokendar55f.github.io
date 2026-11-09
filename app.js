@@ -1,3 +1,9 @@
+const motionButton=document.querySelector('#motion-toggle');
+const motionMedia=matchMedia('(prefers-reduced-motion: reduce)');
+let motionChoice=null;try{motionChoice=localStorage.getItem('greening-motion')}catch(e){}
+function applyMotion(){const full=motionChoice==='full'||(motionChoice!=='reduced'&&!motionMedia.matches);document.documentElement.classList.toggle('motion-full',full);document.documentElement.classList.toggle('motion-reduced',!full);motionButton.textContent=full?'움직임 줄이기':'움직임 켜기';motionButton.setAttribute('aria-pressed',String(full));}
+applyMotion();motionMedia.addEventListener('change',applyMotion);
+motionButton.addEventListener('click',()=>{motionChoice=document.documentElement.classList.contains('motion-full')?'reduced':'full';try{localStorage.setItem('greening-motion',motionChoice)}catch(e){}applyMotion();document.querySelectorAll('.in-view').forEach(el=>{el.classList.remove('in-view');void el.offsetWidth;el.classList.add('in-view')})});
 const toggle=document.querySelector('#menu-toggle'),menu=document.querySelector('#menu');
 function closeMenu(){menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','메뉴 열기')}
 toggle.addEventListener('click',()=>{const open=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'메뉴 닫기':'메뉴 열기')});menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
@@ -12,3 +18,5 @@ const v=document.querySelector('#studio-video');function startVideo(){v.muted=tr
 if(!location.hash){history.scrollRestoration='manual';window.addEventListener('load',()=>window.scrollTo({top:0,left:0,behavior:'instant'}),{once:true})}
 
 v.querySelector('source')?.addEventListener('error',()=>{v.removeAttribute('autoplay');v.load()},{once:true});
+
+// A personal reduced-motion preference also applies when the OS allows motion.
